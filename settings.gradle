@@ -1,0 +1,3 @@
+include ':lmbkit'
+include ':app'
+rootProject.name = "LmbKit"
