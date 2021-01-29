@@ -27,12 +27,16 @@ fun Activity.immersiveLayout(){
     }
 }
 
-fun Activity.useNotchZone(){
+fun Activity.transNavAndStatus(statusLight: Boolean = false,
+                               hideStatus:Boolean = true){
     val decorView: View = window.decorView
-    val option = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+    var option = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
             or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-            or View.SYSTEM_UI_FLAG_FULLSCREEN
             or View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION)
+    if (hideStatus)
+        option = option or View.SYSTEM_UI_FLAG_FULLSCREEN
+    if (statusLight)
+        option = option or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
     decorView.systemUiVisibility = option
     window.statusBarColor = Color.TRANSPARENT
     window.navigationBarColor = Color.TRANSPARENT
@@ -40,12 +44,12 @@ fun Activity.useNotchZone(){
     if (Build.VERSION.SDK_INT >= 28) {
         val lp: WindowManager.LayoutParams = window.attributes
         lp.layoutInDisplayCutoutMode =
-            WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
+                WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
         window.attributes = lp
     }
 }
 
-fun Activity.useNotchTransStatus(){
+fun Activity.transStatus(){
     val decorView: View = window.decorView
     val option = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
             or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
@@ -56,7 +60,7 @@ fun Activity.useNotchTransStatus(){
     if (Build.VERSION.SDK_INT >= 28) {
         val lp: WindowManager.LayoutParams = window.attributes
         lp.layoutInDisplayCutoutMode =
-            WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
+                WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES
         window.attributes = lp
     }
 }
