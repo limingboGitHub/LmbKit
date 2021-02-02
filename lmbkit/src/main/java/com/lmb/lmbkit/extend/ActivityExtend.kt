@@ -29,6 +29,7 @@ fun Activity.immersiveLayout(){
 
 fun Activity.transNavAndStatus(statusLight: Boolean = false,
                                hideStatus:Boolean = true){
+
     val decorView: View = window.decorView
     var option = (View.SYSTEM_UI_FLAG_LAYOUT_STABLE
             or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
