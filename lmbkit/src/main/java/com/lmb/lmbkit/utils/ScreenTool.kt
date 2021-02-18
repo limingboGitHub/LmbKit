@@ -25,6 +25,16 @@ fun getScreenRealHeight():Int{
     return metrics.heightPixels
 }
 
+fun getStatusBarHeight():Int{
+    var result = 0
+    val resourceId: Int =
+            MyContext.context.resources.getIdentifier("status_bar_height", "dimen", "android")
+    if (resourceId > 0) {
+        result = MyContext.context.resources.getDimensionPixelSize(resourceId)
+    }
+    return result
+}
+
 fun getScreenRatio():Float{
     return getScreenHeight() / getScreenWidth().toFloat()
 }
