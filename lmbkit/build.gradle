@@ -51,6 +51,6 @@ uploadArchives{
         repository(url:"file:///D:/androidProjects/lmbkit")
         pom.groupId = "com.lmb.lmbkit"
         pom.artifactId = "lmbkit"
-        pom.version = "1.0.1"
+        pom.version = "1.0.2"
     }
 }
